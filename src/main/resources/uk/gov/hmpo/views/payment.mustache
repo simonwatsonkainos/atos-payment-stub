@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="Atos" name="copyright"/>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta content="text/javascript" http-equiv="content-script-type"/>
+    <meta content="0" http-equiv="expires"/>
+    <meta content="no-cache" http-equiv="pragma"/>
+    <meta content="no-cache, must-revalidate" http-equiv="cache-control"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <meta content="initial-scale=1.0, user-scalable=1" name="viewport"/>
+    <link href="/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+    <link href="/assets/css/payment/pex.css" rel="stylesheet" type="text/css"/>
+    <script src="/assets/js/payment/core.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/jquery.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/jquery.kawwa.modal.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/k-general.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/common.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/captcha.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/virtualnumpad.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/oneclick.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/splitcardnumberfield.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/zoneUpdater.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/click_once.js" type="text/javascript"></script>
+    <script src="/assets/js/payment/k-load.js" type="text/javascript"></script>
+    <script type="text/javascript"></script>
+    <!--[if lt IE 8]>
+    <link href="/assets/css/payment/iehacks1.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <script type="text/javascript"></script>
+    <!--[if IE 9]>
+    <link href="/assets/css/payment/iehacks9.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <script type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/js/payment/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+    <title>Capture card details page</title>
+    <script type="text/javascript">
+function createCookie(name, value, days) {
+var expires = "";
+if (days) {
+var date = new Date();
+date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+expires = "; expires=" + date.toGMTString();
+}
+var cookie = name + "=" + value + expires + "; path=" + "/";
+document.cookie = cookie;
+}
+createCookie("JavaScriptEnabledCheck", 1, 0);
+
+    </script>
+    <link type="text/css" rel="stylesheet" href="/assets/css/payment/tapestry-console.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/payment/t5-alerts.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/payment/tree.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/payment/throbber.css"/>
+</head>
+<body id="no_wallet_management_body">
+<div id="container">
+    <div id="header">
+        <div class="header-inner">
+            <h1>Payment for UK adult passport renewal</h1>
+        </div>
+    </div>
+    <header role="banner"><h1></h1></header>
+    <hr/>
+    <div id="wrapper">
+        <aside role="complementary" class="transaction-data"><p class="vendor"></p>
+            <h2 id="transaction_bloc_title">
+                Transaction information
+                <span class="transactionShowMore">+</span></h2>
+            <div class="main-data">
+                <dl>
+                    <dt class="amount">
+                        Order amount:
+                    </dt>
+                    <dd class="amount" name="amount" id="amount">
+                        £{{ orderDisplayAmount }}
+                    </dd>
+                </dl>
+            </div>
+            <dl class="data-sheet">
+                <div id="instalmentsInfo">
+                    <dt>
+                        Transaction reference:
+                    </dt>
+                    <dd>
+                        E467930
+                    </dd>
+                </div>
+                <dt class="merchantId">
+                    Merchant ID:
+                </dt>
+                <dd class="merchantId" name="merchantId" id="merchantId">
+                    326742105300001
+                </dd>
+                <dt class="amount">
+                    Order amount:
+                </dt>
+                <dd class="amount">
+                    £75.50
+                </dd>
+                <table style="display: none" id="instalmentsReceipt">
+                    <tr>
+                        <th style="width: 260px;">Transaction reference:</th>
+                        <th style="width: 132px;">Period</th>
+                        <th>Order amount</th>
+                    </tr>
+                </table>
+            </dl>
+        </aside>
+        <div class="" role="main" id="main">
+            <div id="captureCardDetailsH2Title"><h2>Card information</h2></div>
+            <form action="/payment/submit-payment/{{ paymentRecord.transactionReference }}" method="post"
+                  id="captureCardForm">
+                <div class="t-invisible"><input value="lfz84meb8f" name="sid" type="hidden"/><input
+                        value="md9MgKweJpwcz/GFn2fMeKQNTtw=:H4sIAAAAAAAAANWaO2zTQBjHr0kjCBEC8RJsDGXoUCeOkz5AVRuSFNq6KcSlEgvRxb4EI7+wL00jJCYGBnbEgoTExmMCsdMBdWEBsSOxIiGQmEDCZ7clAQnR9Czl23x3vv/97nyf/8l9fvoZJdoKuuzgjkksmlaxq6WL2KEtlxT96xKhWDe8s2pYxZpV23Rsy79ZwGt+G64bZKu3SbDlCYZtOzXJc5Fgu00BO1i9TgSKHeJRt5MXVNslhl4XdmQ8QfZ7jOTHljc/jKJbmzGE1p3BYBKvfnr2rfHq3aNImSq7Yqr67X6TQjElc65tKqykFQ3dv2UVGy0ydv/1+7vo9M8YGpJRSv3dQNER+YbPkjaw1Uwr1NWt5rl1h6Lh1XmlMBgrnvvqNEYvnHgyE+GK30S30TBFB9msa2W5XFypLlciGYqNlIx0EolSWV6J5tlFD39gqaCslKvFQrUEdAb7lgplxd8+0PB3G5bjmcNfJq89vjcdhuUcKvXFxEpWy6wTt6ETQ/Mx8v/EqGOPCIW6X4lVOse6jCiEtpwzVzZSH4+/+bH1irMt6tpGBZuELVmCvdIOsaEqwVBBP47Ihd0iX3JtlXie0qqbuufptrXxXMs1vj98u7fFJOuO7nY03wZCMjb3Y/7M/6jnpc/kT7YX0TwPsWAfMsUh7opxrorbgR7LiNxJkxGRZsGQSmBIc2BI82BIx8GQToAhnQRDOgWFVMyAIQXjUeKgexRTPNpeQovcFGti+HuHv2acs+b2UxrOZsSJCHiTEfJOAuOdgsWbzQDjFYHxZoHxSsB4c8B488B4x4HxAvO3LDB/ywLzNwmYv0nA/E0C5m8SMH+TIPhb+N9qBk33dyC/ttZz3r1/u2LPiuEJ9wK62JeKpnuOgTuS5hl20+464OYsGOcpuLN1ggwwZ9JkFKTdOcNB5g03+Xk025dgw3bNmscSRtRz0ez/5uqCFBP9O+H0QPl66uWLO8UYisl+wASfBMwH+z0hoxQxCCPsyZ+lugh6S20ZLXBYpFqmK0S4S8b5SvaGCXfaZDS03aEy6MxBuPwCskqd0I0kAAA="
+                        name="t:formdata" type="hidden"/></div>
+                <ul class="list-of-cards null">
+                    <li><img alt="Logo for card type VISA" name="VISA"
+                             src="https://payment-web.ha2.sips-atos.com/static/common/images/acceptanceLogos/medium/logo_VISA.png"/>
+                    </li>
+                    <li><img alt="Logo for card type VISA_ELECTRON" name="VISA_ELECTRON"
+                             src="/assets/images/logo_VISA_ELECTRON.png"/>
+                    </li>
+                    <li><img alt="Logo for card type DELTA" name="DELTA"
+                             src="/assets/images/logo_DELTA.png"/>
+                    </li>
+                    <li><img alt="Logo for card type MASTERCARD" name="MASTERCARD"
+                             src="/assets/images/logo_MASTERCARD.png"/>
+                    </li>
+                    <li><img alt="Logo for card type MAESTRO" name="MAESTRO"
+                             src="/assets/images//logo_MAESTRO.png"/>
+                    </li>
+                </ul>
+                <div class="customMessage1">
+
+                </div>
+                <div class="customMessage2">
+
+                </div>
+                <br/>
+                <fieldset>
+                    <legend>Please enter payment information
+                    </legend>
+                    <div class="card-data"><p class="" id="no_virtualnumpad_p"><label for="cardNumberField"
+                                                                                      id="cardNumberField-label">
+                        Card number:
+                    </label><input maxlength="19" autocomplete="OFF" id="cardNumberField" name="cardNumberField"
+                                   type="tel"/></p>
+                        <fieldset class="k-choice">
+                            <legend>
+                                Expiry date:
+                            </legend>
+                            <p><label for="expirydatefield" id="expirydatefield-label"><span></span></label><span
+                                    class="monthdatafield" id="expirydatefield"><label class="month-date-label"
+                                                                                       for="expirydatefield-month">
+                                Month:
+                                <span class="styledSelect"><select name="expirydatefield-month" class="date-select"
+                                                                   id="expirydatefield-month">
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select></span></label>
+<label class="year-date-label" for="expirydatefield-year">
+    Year:
+    <span class="styledSelect"><select name="expirydatefield-year" class="date-select" id="expirydatefield-year">
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+        <option>2028</option>
+        <option>2029</option>
+        <option>2030</option>
+        <option>2031</option>
+        <option>2032</option>
+        <option>2033</option>
+        <option>2034</option>
+    </select></span></label></span></p>
+                        </fieldset>
+                        <p><label for="cvvfield" id="cvvfield-label">Security code:
+                        </label><input maxlength="4" autocomplete="OFF" id="cvvfield" name="cvvfield" type="tel"/>
+                            <a role="button" class="k-field-help k-modal-trigger" href="#crypto-info"><span
+                                    id="cvvHelpText">Help ?</span><img alt="Help ?"
+                                                                       src="https://payment-web.ha2.sips-atos.com/static/common/images/help.svg"/></a>
+                        </p></div>
+                    <div class="conditional"></div>
+                </fieldset>
+                <div class="customMessage3">
+
+                </div>
+                <div class="customMessage4">
+
+                </div>
+                <div id="threeDsBefore">
+                    <div class="message"><p class="threeDSWarningMessage">
+                        Depending on your bank, you may be redirected to your bank's authentication page before the
+                        validation of your payment.
+                    </p>
+                        <p class="threeDSLogo"><img alt="Page secured by VISA"
+                                                    src="https://payment-web.ha2.sips-atos.com/static/common/images/3DSLogos/medium/3DS_VISA.png"/><img
+                                alt="Page secured by MASTERCARD"
+                                src="https://payment-web.ha2.sips-atos.com/static/common/images/3DSLogos/medium/3DS_MASTERCARD.png"/>
+                        </p></div>
+                </div>
+                <div class="k-buttons-bar"><p><input value="Confirm" id="form_submit" name="form_submit" type="submit"/>
+                    <div class="secondaryButtons"><a id="cancel_0" class="bt-reset"
+                                                     href="/en/payment/card/capturecarddetails.capturecardcomponent.cancel?sid=lfz84meb8f">
+                        Cancel
+                    </a></div>
+                    </p></div>
+                <div id="threeDsAfter">
+                    <div class="message"><p class="threeDSWarningMessage">
+                        Depending on your bank, you may be redirected to your bank's authentication page before the
+                        validation of your payment.
+                    </p>
+                        <p class="threeDSLogo"><img alt="Page secured by VISA"
+                                                    src="https://payment-web.ha2.sips-atos.com/static/common/images/3DSLogos/medium/3DS_VISA.png"/><img
+                                alt="Page secured by MASTERCARD"
+                                src="https://payment-web.ha2.sips-atos.com/static/common/images/3DSLogos/medium/3DS_MASTERCARD.png"/>
+                        </p></div>
+                </div>
+            </form>
+            <article style="display:none" class="k-modal" id="crypto-info">
+                <div class="modal-body">
+                    <div class="customMessage1">
+
+                    </div>
+                    <div class="customMessage2">
+
+                    </div>
+                    <div id="message_cvv_perso"><h3 tabindex="0">
+                        What is a card security code?
+                    </h3><br/>
+                        <div class="content"><p>Card security code is an anti-fraud security feature to help verify that
+                            you are in possession of your payment card. For your online shopping safety and security, we
+                            require that you enter your card's verification number. We take this added step to ensure
+                            your payment card information is not being used fraudulently.</p><br/>
+                            <ul class="list-images">
+                                <li>
+                                    <figure><img class="cvv_help_img" alt="Image to help you identify security code"
+                                                 src="https://payment-web.ha2.sips-atos.com/assets/2.13.13/ctx/static/common/images/cvv_help_visa_mastercard.svg"/>
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure><img class="cvv_help_img" alt="Image to help you identify security code"
+                                                 src="https://payment-web.ha2.sips-atos.com/assets/2.13.13/ctx/static/common/images/crypto_mc.svg"/>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="customMessage3">
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div><!-- /wrapper -->
+    <footer lang="en" role="contentinfo">
+        <div id="footer">
+            <ul>
+                <li><a href="https://www.passport.service.gov.uk/renew/cookies" target="_blank">Cookies</a></li>
+                <li><a href="https://www.passport.service.gov.uk/renew/privacy" target="_blank">Privacy</a></li>
+                <li><a href="https://www.passport.service.gov.uk/renew/terms-and-conditions" target="_blank">Terms &amp;
+                    conditions</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">Tapestry.onDOMLoaded(function() {
+Tapestry.init({"formEventManager":[{"formId":"captureCardForm","validate":{"submit":false,"blur":false}}]});
+defaultZoneUpdater = new ZoneUpdater({
+  "elementId" : "cardNumberField",
+  "hasCoBadgingOption" : false,
+  "binLength" : "9",
+  "clientEvent" : "keyup",
+  "listenerURI" : "https://payment-web.ha2.sips-atos.com/en/payment/card/capturecarddetails.capturecardcomponent.cardnumberfield:cardnumberchange?sid=lfz84meb8f",
+  "zoneId" : "zoneCoBadgingLogo"
+})
+new ClickOnce('form_submit');
+new ClickOnce('cancel_0');
+});
+
+</script>
+</body>
+</html>

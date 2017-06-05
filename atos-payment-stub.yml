@@ -1,0 +1,18 @@
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 3002
+
+soapServer:
+  baseUrl: http://localhost:8888/
+  paymentInitializePath: /payment/initialize
+  # Enables additional logging to the console for any SOAP requests the server receives
+  additionalSoapServerLogging: false
+
+soapClient:
+  baseUrl: http://localhost:8888/
+
+redirectionBaseUrl: http://localhost:3002/payment/

@@ -1,0 +1,79 @@
+/* ------------------------------------------------------------------------
+ *
+ * 	SIPS, Worldline e-payment Services
+ *  Fixes for Internet Explorer
+ *  12/2014
+ *
+ -------------------------------------------------------------------------*/
+
+/* #container {width: 1280px;} */
+
+/* --- IE 6 ONLY --- */
+header {
+	_padding: 0 5%;
+	_margin: 0 auto;
+	_border-bottom: 2px solid #FFF;
+}
+aside {
+	_float: left;
+	_width: 90%;
+	_max-width: 1024px;
+	_min-width: 220px;
+	_padding: 0 5%;
+	_margin: 20px auto;
+}
+footer {
+	_float: left;
+	_width: 100%;
+	_text-align: center;
+	_padding: 10px 0;
+	_margin-top: 2em;
+}
+
+a.bt-submit, a.bt-submit:link, a.bt-submit:visited, a.bt-reset, a.bt-reset:link, a.bt-reset:visited {
+	_display: inline-block;
+	_font-size: 130%;
+	_text-decoration: none;
+	_text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+	_color: #FFF;
+	_background: #000;
+	_padding: 0.5em 1.5em;
+	_margin: 0.5em;
+	_border-radius: 3px;
+	_border: none;
+	_box-shadow: 0 1px 1px rgba(0,0,0,.5);
+}
+
+input {border: 1px solid #999;}
+
+
+/* --- GENERAL --- */
+
+h1 {padding: 0.5em 0;}
+
+ul.k-language button {width: 40px;}
+
+.k-choice label {padding-right: 5px;}
+
+/* --- STEPS --- */
+
+ol.k-form-steps {float: left; width: 100%;}
+ol.k-form-steps li {
+	float: left;
+	width: auto;
+	list-style-type: decimal;
+	list-style-position: inside;
+	font-size: 0.8em;
+}
+
+/* --- MODAL --- */
+
+.k-modal {background: transparent url(../img/ie_modal_bg.png);}
+.k-modal .content {float: left; padding: 2em;}
+.k-modal h3 {padding: 2em 2em 0;}
+
+ul.list-images {clear: both; padding: 0; margin: 0;}
+ul.list-images li {float: left; width: auto; padding-right: 1em;}
+
+fieldset.method-choice label {border: none;}
+fieldset.method-choice label:hover, fieldset.method-choice label:focus {border: none;}

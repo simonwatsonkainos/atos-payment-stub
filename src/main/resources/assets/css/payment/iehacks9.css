@@ -1,0 +1,15 @@
+/* ------------------------------------------------------------------------
+ *
+ * 	SIPS, Worldline e-payment Services
+ *  Fixes for Internet Explorer 9
+ *  12/2014
+ *
+ -------------------------------------------------------------------------*/
+
+ol.k-form-steps {display: table; width: 100%; border-spacing: 2px; border-collapse: separate;}
+
+ol.k-form-steps li {
+	display: table-cell;
+}
+
+/* ul.list-of-cards img {width: 102px; height: 32px;} */

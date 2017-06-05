@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body >
+            <ns1:processPaymentWebInit xmlns:ns1='urn:sips:cn:contract'>
+                  <!-- optional -->
+                  <ns1:input>
+                        <!-- optional -->
+                        <ns1:request>
+                              <!-- optional -->
+                              <automaticResponseUrl>http://localhost:3002/autoResponseUrl</automaticResponseUrl>
+                              <!-- optional -->
+                              <captureDay>1</captureDay>
+                              <!-- optional -->
+                              <captureMode>TEST_CAPTURE_MODE</captureMode>
+                              <currencyCode>GBP</currencyCode>
+                              <!-- optional -->
+                              <customerEmail>test_cutsomer_email@test.com</customerEmail>
+                              <!-- optional -->
+                              <customerId>ABC13456</customerId>
+                              <!-- optional -->
+                              <customerLanguage>EN-GB</customerLanguage>
+                              <requestVersion>0</requestVersion>
+                              <merchantId>HMPO-1</merchantId>
+                              <!-- optional -->
+                              <merchantSessionId>1</merchantSessionId>
+                              <!-- optional --><!--dateTime-->
+                              <merchantTransactionDateTime>2008-12-31T23:59:00.000-05:00</merchantTransactionDateTime>
+                              <!-- optional -->
+                              <merchantWalletId>HMPO-1</merchantWalletId>
+                              <normalReturnUrl>http://localhost:3002/normalResponseUrl</normalReturnUrl>
+                              <orderAmount>13</orderAmount>
+                              <orderChannel>ORDER_CHANNEL</orderChannel>
+                              <!-- optional -->
+                              <orderId>ORD-12345</orderId>
+                              <!-- optional -->
+                              <paymentMeans>ELECTRONIC</paymentMeans>
+                              <!-- optional -->
+                              <returnContext>RETURN_CONTEXT</returnContext>
+                              <!-- optional -->
+                              <templateFile>templateFile.tmpl</templateFile>
+                              <transactionReference>ABC12345</transactionReference>
+                              <!-- optional -->
+                              <userId>USER-001</userId>
+                        </ns1:request>
+                  </ns1:input>
+            </ns1:processPaymentWebInit>
+      </soap:Body>
+</soap:Envelope>

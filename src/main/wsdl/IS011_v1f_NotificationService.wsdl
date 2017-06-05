@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="NotificationService" targetNamespace="urn:sips:en:contract:dvla" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:sips:en:contract:dvla" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:sips:en:contract:dvla" version="1.0" xmlns:tns="urn:sips:en:contract:dvla" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="NotificationTransactionRequest" type="tns:NotificationTransactionRequest" />
+<xs:element name="NotificationTransactionResponse" type="tns:NotificationTransactionResponse" />
+<xs:element name="NotificationWalletRequest" type="tns:NotificationWalletRequest" />
+<xs:element name="NotificationWalletResponse" type="tns:NotificationWalletResponse" />
+<xs:complexType name="NotificationWalletRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="notification" type="tns:notificationWalletDTO" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="notificationWalletDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:notificationDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="complementaryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="complementaryInfo" type="xs:string" />
+          <xs:element name="merchantId" type="xs:string" />
+          <xs:element minOccurs="0" name="merchantSessionId" type="xs:string" />
+          <xs:element name="merchantWalletId" type="xs:string" />
+          <xs:element name="responseCode" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="notificationDTO">
+    <xs:sequence>
+      <xs:element name="confirmationVersion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="NotificationWalletResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="output" type="tns:notificationStatus" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="notificationStatus">
+    <xs:sequence>
+      <xs:element name="autoResponseStatusCode" type="xs:string" />
+      <xs:element name="autoResponseStatusMessage" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="NotificationTransactionRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="notification" type="tns:notificationTransactionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="notificationTransactionDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:notificationDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="acquirerResponseCode" type="xs:string" />
+          <xs:element minOccurs="0" name="acquirerResponseDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="authorisationId" type="xs:string" />
+          <xs:element name="captureDay" type="xs:short" />
+          <xs:element name="captureMode" type="xs:string" />
+          <xs:element minOccurs="0" name="cardCreditDebitIndicator" type="xs:string" />
+          <xs:element minOccurs="0" name="cardCSCResultCode" type="xs:string" />
+          <xs:element minOccurs="0" name="cardExpiryDate" type="xs:string" />
+          <xs:element minOccurs="0" name="cardScheme" type="xs:string" />
+          <xs:element minOccurs="0" name="cardSeqNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="chargeAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="complementaryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="complementaryInfo" type="xs:string" />
+          <xs:element name="currencyCode" type="xs:string" />
+          <xs:element minOccurs="0" name="customerEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="customerId" type="xs:string" />
+          <xs:element name="customerIpAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="maskedPan" type="xs:string" />
+          <xs:element name="merchantId" type="xs:string" />
+          <xs:element minOccurs="0" name="merchantSessionId" type="xs:string" />
+          <xs:element minOccurs="0" name="merchantTransactionDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="merchantWalletId" type="xs:string" />
+          <xs:element name="orderAmount" type="xs:long" />
+          <xs:element name="orderChannel" type="xs:string" />
+          <xs:element minOccurs="0" name="orderId" type="xs:string" />
+          <xs:element name="responseCode" type="xs:string" />
+          <xs:element name="responseDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="returnContext" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDLiabilityShift" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDRelegationCode" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDStatusCode" type="xs:string" />
+          <xs:element name="transactionDateTime" type="xs:dateTime" />
+          <xs:element name="transactionReference" type="xs:string" />
+          <xs:element minOccurs="0" name="userId" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="NotificationTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="output" type="tns:notificationStatus" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="notifyTransactionResponse">
+    <wsdl:part element="tns:NotificationTransactionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notifyWallet">
+    <wsdl:part element="tns:NotificationWalletRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notifyTransaction">
+    <wsdl:part element="tns:NotificationTransactionRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notifyWalletResponse">
+    <wsdl:part element="tns:NotificationWalletResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Notification">
+    <wsdl:operation name="notifyWallet">
+      <wsdl:input message="tns:notifyWallet" name="notifyWallet">
+    </wsdl:input>
+      <wsdl:output message="tns:notifyWalletResponse" name="notifyWalletResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyTransaction">
+      <wsdl:input message="tns:notifyTransaction" name="notifyTransaction">
+    </wsdl:input>
+      <wsdl:output message="tns:notifyTransactionResponse" name="notifyTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NotificationServiceSoapBinding" type="tns:Notification">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="notifyWallet">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="notifyWallet">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="notifyWalletResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyTransaction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="notifyTransaction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="notifyTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificationService">
+    <wsdl:port binding="tns:NotificationServiceSoapBinding" name="NotificationImplPort">
+      <soap:address location="https://localhost:8890/sips-en-contract.net.atos.sips.en.contract.dvla.Notification" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
