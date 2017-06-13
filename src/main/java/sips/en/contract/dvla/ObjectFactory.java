@@ -1,6 +1,8 @@
 
 package sips.en.contract.dvla;
 
+import uk.gov.hmpo.models.builders.NotificationTransactionDTOBuilder;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -97,7 +99,7 @@ public class ObjectFactory {
      * 
      */
     public NotificationTransactionDTO createNotificationTransactionDTO() {
-        return new NotificationTransactionDTO();
+        return new NotificationTransactionDTOBuilder().createNotificationTransactionDTO();
     }
 
     /**

@@ -3,6 +3,7 @@ package uk.gov.hmpo.services;
 import uk.gov.hmpo.models.PaymentRecord;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +27,7 @@ public class FakeDb {
         return record;
     }
 
-    public static void updatePaymentRecord(String transactionReference, long cardNumberField,
+    public static PaymentRecord updatePaymentRecord(String transactionReference, long cardNumberField,
                                            int expiryMonth, int expiryYear, int cvv) throws Exception {
 
         PaymentRecord record = searchVerifyAndExtractPaymentRecord(transactionReference);
@@ -37,10 +38,18 @@ public class FakeDb {
         record.setExpiryYear(expiryYear);
         record.setSecurityCode(cvv);
         record.setPaymentProcessed(true);
+        record.setMerchantTransactionDateTime(new Date());
 
         paymentRecords.add(record);
+        return record;
     }
 
+    /*
+     * Function for extracting a payment record from the static list, checks:
+     * - if record is present
+     * - record is not a duplicate
+     * then returns if both of the above criteria pass
+     */
     private static PaymentRecord searchVerifyAndExtractPaymentRecord(String transactionReference) throws Exception {
 
         List<PaymentRecord> searchHits = paymentRecords

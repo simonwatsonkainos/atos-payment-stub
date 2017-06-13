@@ -66,6 +66,7 @@ import org.w3._2001.xmlschema.Adapter1;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "notificationTransactionDTO", propOrder = {
+    "confirmationVersion",
     "acquirerResponseCode",
     "acquirerResponseDescription",
     "amount",
@@ -106,6 +107,8 @@ public class NotificationTransactionDTO
     extends NotificationDTO
 {
 
+    @XmlElement(required = true)
+    protected String confirmationVersion;
     protected String acquirerResponseCode;
     protected String acquirerResponseDescription;
     protected Long amount;
@@ -155,6 +158,45 @@ public class NotificationTransactionDTO
     @XmlElement(required = true)
     protected String transactionReference;
     protected String userId;
+
+    public NotificationTransactionDTO(String confirmationVersion, String acquirerResponseCode, String acquirerResponseDescription, Long amount, String authorisationId, short captureDay, String captureMode, String cardCreditDebitIndicator, String cardCSCResultCode, String cardExpiryDate, String cardScheme, String cardSeqNumber, Long chargeAmount, String complementaryCode, String complementaryInfo, String currencyCode, String customerEmail, String customerId, String customerIpAddress, String maskedPan, String merchantId, String merchantSessionId, Date merchantTransactionDateTime, String merchantWalletId, long orderAmount, String orderChannel, String orderId, String responseCode, String responseDescription, String returnContext, String threeDLiabilityShift, String threeDRelegationCode, String threeDStatusCode, Date transactionDateTime, String transactionReference, String userId) {
+        this.confirmationVersion = confirmationVersion;
+        this.acquirerResponseCode = acquirerResponseCode;
+        this.acquirerResponseDescription = acquirerResponseDescription;
+        this.amount = amount;
+        this.authorisationId = authorisationId;
+        this.captureDay = captureDay;
+        this.captureMode = captureMode;
+        this.cardCreditDebitIndicator = cardCreditDebitIndicator;
+        this.cardCSCResultCode = cardCSCResultCode;
+        this.cardExpiryDate = cardExpiryDate;
+        this.cardScheme = cardScheme;
+        this.cardSeqNumber = cardSeqNumber;
+        this.chargeAmount = chargeAmount;
+        this.complementaryCode = complementaryCode;
+        this.complementaryInfo = complementaryInfo;
+        this.currencyCode = currencyCode;
+        this.customerEmail = customerEmail;
+        this.customerId = customerId;
+        this.customerIpAddress = customerIpAddress;
+        this.maskedPan = maskedPan;
+        this.merchantId = merchantId;
+        this.merchantSessionId = merchantSessionId;
+        this.merchantTransactionDateTime = merchantTransactionDateTime;
+        this.merchantWalletId = merchantWalletId;
+        this.orderAmount = orderAmount;
+        this.orderChannel = orderChannel;
+        this.orderId = orderId;
+        this.responseCode = responseCode;
+        this.responseDescription = responseDescription;
+        this.returnContext = returnContext;
+        this.threeDLiabilityShift = threeDLiabilityShift;
+        this.threeDRelegationCode = threeDRelegationCode;
+        this.threeDStatusCode = threeDStatusCode;
+        this.transactionDateTime = transactionDateTime;
+        this.transactionReference = transactionReference;
+        this.userId = userId;
+    }
 
     /**
      * Gets the value of the acquirerResponseCode property.
@@ -980,4 +1022,13 @@ public class NotificationTransactionDTO
         this.userId = value;
     }
 
+    @Override
+    public String getConfirmationVersion() {
+        return confirmationVersion;
+    }
+
+    @Override
+    public void setConfirmationVersion(String confirmationVersion) {
+        this.confirmationVersion = confirmationVersion;
+    }
 }

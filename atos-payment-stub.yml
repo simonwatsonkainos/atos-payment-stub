@@ -8,11 +8,11 @@ server:
 
 soapServer:
   baseUrl: http://localhost:8888/
-  paymentInitializePath: /payment/initialize
+  paymentInitializePath: /services/v1/paymentInit
   # Enables additional logging to the console for any SOAP requests the server receives
-  additionalSoapServerLogging: false
+  additionalSoapServerLogging: true
 
 soapClient:
-  baseUrl: http://localhost:8888/
+  baseUrl: http://localhost:5000/
 
 redirectionBaseUrl: http://localhost:3002/payment/

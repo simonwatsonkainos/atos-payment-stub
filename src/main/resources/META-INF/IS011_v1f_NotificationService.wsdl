@@ -148,7 +148,7 @@
   </wsdl:binding>
   <wsdl:service name="NotificationService">
     <wsdl:port binding="tns:NotificationServiceSoapBinding" name="NotificationImplPort">
-      <soap:address location="https://localhost:8890/sips-en-contract.net.atos.sips.en.contract.dvla.Notification" />
+      <soap:address location="http://localhost:2000/sips-en-contract.net.atos.sips.en.contract.dvla.Notification" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

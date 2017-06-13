@@ -2,6 +2,7 @@ package uk.gov.hmpo;
 
 import io.dropwizard.forms.MultiPartBundle;
 import sips.cn.contract.PaymentServiceImpl;
+import sips.en.contract.dvla.NotificationTransactionResponse;
 import uk.gov.hmpo.controllers.PaymentController;
 import uk.gov.hmpo.health.ApplicationHealthCheck;
 import io.dropwizard.Application;
@@ -11,8 +12,10 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import uk.gov.hmpo.helpers.ConfigurationHelper;
+import uk.gov.hmpo.services.AutomaticResponseService;
 
 import javax.xml.ws.Endpoint;
+import java.net.MalformedURLException;
 
 public class AtosPaymentStub extends Application<AtosPaymentStubConfiguration> {
 
@@ -29,9 +32,11 @@ public class AtosPaymentStub extends Application<AtosPaymentStubConfiguration> {
     }
 
     @Override
-    public void run(AtosPaymentStubConfiguration configuration, Environment environment){
+    public void run(AtosPaymentStubConfiguration configuration, Environment environment) {
 
-        if(configuration.getSoapServer().isAdditionalSoapServerLogging()) {
+        ConfigurationHelper.setConfiguration(configuration);
+
+        if(ConfigurationHelper.getConfiguration().getSoapServer().isAdditionalSoapServerLogging()) {
             System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
             System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
             System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
@@ -47,7 +52,5 @@ public class AtosPaymentStub extends Application<AtosPaymentStubConfiguration> {
         environment.healthChecks().register("alive", applicationHealthCheck);
 
         Endpoint.publish(configuration.getSoapServer().getBaseUrl(), new PaymentServiceImpl());
-
-        ConfigurationHelper.setConfiguration(configuration);
     }
 }

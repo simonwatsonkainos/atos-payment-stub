@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body >
+        <ns1:NotificationTransactionRequest xmlns:ns1='urn:sips:en:contract:dvla'>
+            <!-- optional -->
+            <ns1:notification>
+                <confirmationVersion>1</confirmationVersion>
+                <!-- optional -->
+                <acquirerResponseCode>200</acquirerResponseCode>
+                <!-- optional -->
+                <acquirerResponseDescription>SUCCESS</acquirerResponseDescription>
+                <!-- optional -->
+                <amount>7230</amount>
+                <!-- optional -->
+                <authorisationId>9999</authorisationId>
+                <captureDay>1</captureDay>
+                <captureMode>CAPTURE_MODE</captureMode>
+                <!-- optional -->
+                <cardCreditDebitIndicator>C</cardCreditDebitIndicator>
+                <!-- optional -->
+                <cardCSCResultCode>1</cardCSCResultCode>
+                <!-- optional -->
+                <cardExpiryDate>2008-12-31T23:59:00.000-05:00</cardExpiryDate>
+                <!-- optional -->
+                <cardScheme>SCHEME</cardScheme>
+                <!-- optional -->
+                <cardSeqNumber>123</cardSeqNumber>
+                <!-- optional -->
+                <chargeAmount>7530</chargeAmount>
+                <!-- optional -->
+                <complementaryCode>123</complementaryCode>
+                <!-- optional -->
+                <complementaryInfo>COMPLEMENTARY_INFO</complementaryInfo>
+                <currencyCode>GBP</currencyCode>
+                <!-- optional -->
+                <customerEmail>test_email@test.com</customerEmail>
+                <!-- optional -->
+                <customerId>12345</customerId>
+                <customerIpAddress>127.0.0.1</customerIpAddress>
+                <!-- optional -->
+                <maskedPan>1234********5678</maskedPan>
+                <merchantId>ABC123</merchantId>
+                <!-- optional -->
+                <merchantSessionId>1</merchantSessionId>
+                <!-- optional --><!--dateTime-->
+                <merchantTransactionDateTime>2008-12-31T23:59:00.000-05:00</merchantTransactionDateTime>
+                <!-- optional -->
+                <merchantWalletId>123</merchantWalletId>
+                <orderAmount>7530</orderAmount>
+                <orderChannel>ORDER_CHANNEL</orderChannel>
+                <!-- optional -->
+                <orderId>12345</orderId>
+                <responseCode>00</responseCode>
+                <responseDescription>SUCCESS</responseDescription>
+                <!-- optional -->
+                <returnContext>RETURN_CONTEXT</returnContext>
+                <!-- optional -->
+                <threeDLiabilityShift>WHAT</threeDLiabilityShift>
+                <!-- optional -->
+                <threeDRelegationCode>AGAIN_WHAT</threeDRelegationCode>
+                <!-- optional -->
+                <threeDStatusCode>12345</threeDStatusCode><!--dateTime-->
+                <transactionDateTime>2008-12-31T23:59:00.000-05:00</transactionDateTime>
+                <transactionReference>ABC12345</transactionReference>
+                <!-- optional -->
+                <userId>12345</userId>
+            </ns1:notification>
+        </ns1:NotificationTransactionRequest>
+    </soap:Body>
+</soap:Envelope>

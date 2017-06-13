@@ -1,5 +1,7 @@
 package uk.gov.hmpo.controllers;
 
+import uk.gov.hmpo.models.PaymentRecord;
+import uk.gov.hmpo.services.AutomaticResponseService;
 import uk.gov.hmpo.services.FakeDb;
 import uk.gov.hmpo.views.PaymentSuccessView;
 import uk.gov.hmpo.views.PaymentView;
@@ -12,13 +14,16 @@ import java.net.URI;
 @Path("/payment")
 public class PaymentController {
 
+    private AutomaticResponseService automaticResponseService;
+
     public PaymentController() {
+        automaticResponseService = new AutomaticResponseService();
     }
 
     @GET
     @Path("/{transactionReference}")
     @Produces({MediaType.TEXT_HTML})
-    public PaymentView getThing(@PathParam("transactionReference") String transactionReference) throws Exception {
+    public PaymentView getPayment(@PathParam("transactionReference") String transactionReference) throws Exception {
         return new PaymentView(FakeDb.getPaymentRecord(transactionReference));
     }
 
@@ -38,17 +43,8 @@ public class PaymentController {
             @FormParam("expirydatefield-year") int expiryYear,
             @FormParam("cvvfield") int cvv
     ) throws Exception {
-        FakeDb.updatePaymentRecord(transactionReference, cardNumberField, expiryMonth, expiryYear, cvv);
+        PaymentRecord record = FakeDb.updatePaymentRecord(transactionReference, cardNumberField, expiryMonth, expiryYear, cvv);
+        automaticResponseService.sendAutomaticResponse(record);
         return Response.seeOther(new URI("/payment/success")).build();
-    }
-
-    @POST
-    @Path("/manual-response-confirmation")
-    @Produces({MediaType.TEXT_HTML})
-    public Response paymentSuccessPost(
-            @FormParam("testInput") String testInput
-    ) throws Exception {
-        System.out.println("Test");
-        return Response.ok().build();
     }
 }
